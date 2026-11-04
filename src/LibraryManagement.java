@@ -3,10 +3,44 @@ import java.util.Scanner;
 
 public class LibraryManagement {
 
+    private static int nextBookId=1;
     private static ArrayList<Book> books=new ArrayList<>();
 
     private static Scanner input=new Scanner(System.in);
 
+    private static void addBook(){
+        System.out.println("+----------------------------+");
+        System.out.println("|          ADD BOOK          |");
+        System.out.println("+----------------------------+");
+
+        String id=String.format("B%04d",nextBookId);
+
+        System.out.println("\n\nBook ID: "+id);
+
+        System.out.print("Enter Book Title: ");
+        String title=input.nextLine().trim();
+
+        System.out.print("Enter Author Name: ");
+        String author=input.nextLine().trim();
+
+        Book newBook=new Book(id,title,author);
+
+        books.add(newBook);
+
+        nextBookId++;
+
+        System.out.println("\tBook added successfully!");
+
+        System.out.println("\nDo you want to add a new Book? (Y/N): ");
+        String newOne= input.nextLine();
+
+        if (newOne.equalsIgnoreCase("Y")){
+            addBook();
+        }
+        if (newOne.equalsIgnoreCase("N")){
+            return;
+        }
+    }
     private static void homeMenu(){
         int choice;
 
@@ -34,6 +68,7 @@ public class LibraryManagement {
 
             switch (choice){
                 case 1:
+                    addBook();
                     break;
                 case 2:
                     break;
