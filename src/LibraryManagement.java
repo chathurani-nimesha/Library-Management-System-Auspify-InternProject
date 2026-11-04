@@ -23,6 +23,11 @@ public class LibraryManagement {
         System.out.print("Enter Author Name: ");
         String author=input.nextLine().trim();
 
+        if(title.isEmpty() || author.isEmpty()){
+            System.out.println("Invalid book details!");
+            return;
+        }
+
         Book newBook=new Book(id,title,author);
 
         books.add(newBook);
@@ -39,6 +44,32 @@ public class LibraryManagement {
         }
         if (newOne.equalsIgnoreCase("N")){
             return;
+        }
+    }
+
+    private static void viewAllBooks(){
+        System.out.println("+----------------------------------+");
+        System.out.println("|            ALL BOOKS             |");
+        System.out.println("+----------------------------------+");
+
+        if (books.isEmpty()){
+            System.out.println("No books found in the library.");
+            return;
+        }
+
+        boolean found =false;
+
+        for (Book book:books){
+            if(book.isAvailable()){
+                book.displayDetails();
+
+                System.out.println("------------------------------------");
+                found=true;
+            }
+        }
+
+        if (!found){
+            System.out.println("No available books at the moment.");
         }
     }
     private static void homeMenu(){
@@ -71,6 +102,7 @@ public class LibraryManagement {
                     addBook();
                     break;
                 case 2:
+                    viewAllBooks();
                     break;
 
                 case 3:
