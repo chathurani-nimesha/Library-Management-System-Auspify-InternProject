@@ -72,6 +72,35 @@ public class LibraryManagement {
             System.out.println("No available books at the moment.");
         }
     }
+
+    private static void removeBook(){
+        System.out.println("+---------------------------------------------+");
+        System.out.println("|               REMOVE BOOK                   |");
+        System.out.println("+---------------------------------------------+");
+
+        if(books.isEmpty()){
+            System.out.println("No books available to remove.");
+            return;
+        }
+
+        System.out.print("\nEnter book ID to remove: ");
+        String searchId=input.nextLine().trim();
+
+        for(Book book:books){
+            if(book.getBookID().equalsIgnoreCase(searchId)){
+                if(!book.isAvailable()){
+                    System.out.println("Cannot remove this book. It is currently issued.");
+                    return;
+                }
+                books.remove(book);
+
+                System.out.println("\n\nBook removed successfully!");
+
+                return;
+            }
+        }
+        System.out.println("Book with ID "+ searchId + " not found.");
+    }
     private static void homeMenu(){
         int choice;
 
@@ -102,10 +131,11 @@ public class LibraryManagement {
                     addBook();
                     break;
                 case 2:
-                    viewAllBooks();
+                    removeBook();
                     break;
 
                 case 3:
+                    viewAllBooks();
                     break;
 
                 case 4:
