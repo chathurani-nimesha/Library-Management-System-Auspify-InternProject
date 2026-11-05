@@ -39,6 +39,15 @@ LibraryManagementSystem/
 ├── src/
 │   ├── Book.java
 │   └── LibraryManagement.java
+├── screenshots/
+│   ├── AddBook.png
+│   ├── IssuesBook.png
+│   ├── MainMenu.png
+│   ├── RemoveBook.png
+│   ├── SearchBookByID.png
+│   ├── SearchBookByTitle.png
+│   ├── ViewAllBooks.png
+│   └── ReturnedBook
 │
 └── README.md
 ```
@@ -54,7 +63,25 @@ LibraryManagementSystem/
 
 ## Main Menu
 
+![Main Menu](screenshots/MainMenu.png)
 
+## Add Book
+![Add Books](screenshots/AddBook.png)
+
+## View Available Books
+![View Books](screenshots/ViewAllBooks.png)
+
+## Search Book by book ID
+![Search Book](screenshots/SearchBookByID.png)
+
+## Search Book by Title
+![Search Book](screenshots/SearchBookByTitle.png)
+
+## Issue Book
+![Issue Book](screenshots/IssuesBook.png)
+
+## Returned Book
+![Returned Book](screenshots/ReturnedBook.png)
 
 ## Book Information
 
